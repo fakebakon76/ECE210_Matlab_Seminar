@@ -8,9 +8,6 @@ v = [-1; -1; -1];
 A = [-u; 2 * u; 7 * u];
 B = [A' v];
 
-disp(A);
-disp(B);
-
 % Question 2
 c = exp(pi * 1j * 4);
 d = sqrt(1j);
@@ -26,4 +23,5 @@ A = [1 -11 -3
 
 b = [-37; -1; 10];
 
-x = mldivide(A, b);
+x = A\b; %mldivide(A, b);
+disp(x);

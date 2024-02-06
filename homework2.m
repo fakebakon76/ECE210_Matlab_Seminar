@@ -8,9 +8,9 @@ clear;
 close all;
 
 % Question 1
-u = [-4, -2, 0, 2, 4];
+u = -4:2:4;
 
-v = [0, pi/4, pi/2, 3*pi/4, pi];
+v = 0:pi/4:pi;
 
 % Question 2
 f = prod(1:10);
@@ -23,12 +23,6 @@ A(6) = 1;
 b1 = [0; 2; 4; 6];
 b2 = [1 9 2 10];
 B  = b2 + b1;
-
-% HAHAHA
-% I didn't see your hint until after I did the problem. I'll do your below hehehe.
-
-b = 1:16;
-B = reshape(b, 4, 4);
 
 % Question 4
 t = linspace(-pi, pi, 1000);
