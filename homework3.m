@@ -9,7 +9,7 @@ close all;
 
 %% Setup
 
-ITERATIONS = 10;
+ITERATIONS = 1e6;
 
 CREWMATES = 6;
 ROUNDS = 12;
@@ -57,8 +57,6 @@ survivors = ~people(2:down, :);
 wins = (sum(survivors)-1) > 0;
 loss_rate = 1-nnz(wins)/ITERATIONS;
 
-died
-survivors
 loss_rate
 
 %% Printing
