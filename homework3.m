@@ -3,7 +3,7 @@
 % ECE210 Matlab Seminar Homework 3
 
 clc;
-clear;
+%clear;
 close all;
 
 
@@ -18,20 +18,23 @@ CREWMATE_SIDES = 4;
 IMPOSTER_ROLLS = 2;
 IMPOSTER_SIDES = 2;
 
-rng(0x73757300); % Calls matlabs random num generator seeds
+rng(0x73757300);
 %rng("shuffle");
 
 %% Question 1
 
-crewmates = randi(CREWMATE_SIDES, 1, CREWMATES);
+crewmates = randi(CREWMATE_SIDES, CREWMATES, ITERATIONS);
 sus = sum(randi(IMPOSTER_SIDES, IMPOSTER_ROLLS, ITERATIONS));
 
 targets = randi(CREWMATES, ROUNDS, ITERATIONS);
 
 %% Question 2
 
-kills = false(ROUNDS, ITERATIONS);
-skills = crewmates(targets);
+% kills = false(ROUNDS, ITERATIONS);
+iterations = (1:ITERATIONS) + zeros(1, ROUNDS)';
+targetIndex = sub2ind([CREWMATES, ITERATIONS], targets, iterations);
+
+skills = crewmates(targetIndex);
 kills = sus>skills;
 
 %% Question 3
@@ -44,7 +47,6 @@ died = targets.*kills;
 people = zeros([CREWMATES+1 ITERATIONS]);
 col = col+1;
 
-iterations = (1:ITERATIONS) + zeros(1, ROUNDS)';
 coord = sub2ind([CREWMATES+1, ITERATIONS], col, iterations);
 people(coord) = 1; %putting one in all the indices with dead people
 
@@ -58,11 +60,3 @@ wins = (sum(survivors)-1) > 0;
 loss_rate = 1-nnz(wins)/ITERATIONS;
 
 loss_rate
-
-%% Printing
-
-% loss_rate
-% disp(loss_rate);
-
-% number of wins
-% disp(nnz(wins));
