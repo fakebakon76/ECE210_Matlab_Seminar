@@ -1,8 +1,8 @@
 ## ECE210 Matlab Seminar Code
-_Author:_ Noam Schuck
+__Author:__ Noam Schuck
 
-_Professor:_ Jacob Koziej
+__Professor:__ Jacob Koziej
 
-_University:_ Cooper Union
+__University:__ Cooper Union
 
-_Email:_ noam.schuck@gmail.com
+__Email:__ noam.schuck@gmail.com
